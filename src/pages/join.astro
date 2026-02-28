@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout>
@@ -16,7 +17,7 @@ import Footer from '../components/Footer.astro';
             <p class="paragraph_large text-color_secondary margin-bottom_small">
               Want to become a pilot? Interested in learning Aerobatics? Want to take a ride in an aerobatic plane? Looking for spin training? &nbsp;Let us know! Send us a message,
               we can set you up with the right person to achieve your goals. Join the Lone Star Aerobatic Club today!
-            </p><div class="button-group"><a href="#payment" class="button w-button">Pay Dues</a><a href="/#contact" class="button is-secondary w-button">Contact us</a></div>
+            </p><div class="button-group"><a href="#payment" class="button w-button">Pay Dues</a><a href="#contact" class="button is-secondary w-button">Contact us</a></div>
           </div>
         </div>
       </div><img
@@ -33,7 +34,7 @@ import Footer from '../components/Footer.astro';
       />
     </div>
   </header>
-  <section class="section is-secondary">
+  <section id="payment" class="section is-secondary">
     <div class="container">
       <div class="header is-align-center">
         <div class="eyebrow">Membership Dues</div><h2 class="heading_h1">Choose your flight path</h2><p class="subheading">
@@ -117,5 +118,6 @@ import Footer from '../components/Footer.astro';
       </ul>
     </div>
   </section>
+  <Contact />
   <Footer />
 </Layout>
