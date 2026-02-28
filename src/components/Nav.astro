@@ -1,28 +1,29 @@
 ---
 import logo from '../assets/img/logo.png';
 import { Image } from 'astro:assets';
+import { navLinks } from '../data/content';
 ---
 
 <div class="nav">
-  <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" class="nav_container w-nav">
+  <div data-animation="default" data-collapse="medium" role="banner" class="nav_container w-nav">
     <div class="nav_left">
       <a href="/" class="nav_logo w-inline-block"
-        ><Image src={logo} loading="eager" alt="" width="40" class="logo" quality={90} densities={[1.5, 2]} />
+        ><Image src={logo} loading="eager" alt="IAC Chapter 24 logo" width="40" class="logo" quality={90} densities={[1.5, 2]} />
         <div class="paragraph_large margin-bottom_none">Chapter 24</div></a
       >
     </div>
     <div class="nav_right">
       <nav role="navigation" class="nav_menu w-nav-menu">
         <ul role="list" class="nav_menu-list w-list-unstyled">
-          <li class="nav_menu-list-item">
-            <a href="/#discover" class="nav_link w-inline-block"><div>Discover</div></a>
-          </li>
-          <li class="nav_menu-list-item">
-            <a href="/#faq" class="nav_link w-inline-block"><div>FAQ</div></a>
-          </li>
-          <li class="nav_menu-list-item">
-            <a href="/#contact" class="nav_link w-inline-block"><div>Contact</div></a>
-          </li>
+          {
+            navLinks.map(link => (
+              <li class="nav_menu-list-item">
+                <a href={`/${link.href}`} class="nav_link w-inline-block">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </nav>
       <div class="button-group margin-top_none">
@@ -44,11 +45,53 @@ import { Image } from 'astro:assets';
 </div>
 
 <script>
-  const toggle = document.querySelector('.nav_mobile-btn');
-  const menu = document.querySelector('.nav_right');
+  const toggle = document.querySelector('.nav_mobile-menu-button');
+  const menu = document.querySelector('.w-nav-menu');
   toggle?.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
-    menu?.classList.toggle('open');
+    toggle.classList.toggle('w--open');
+    if (!expanded) {
+      menu?.classList.remove('nav-menu-closing');
+      menu?.setAttribute('data-nav-menu-open', '');
+    } else {
+      menu?.classList.add('nav-menu-closing');
+      menu?.addEventListener('animationend', () => {
+        menu.classList.remove('nav-menu-closing');
+        menu.removeAttribute('data-nav-menu-open');
+      }, { once: true });
+    }
   });
 </script>
+
+<style is:global>
+  [data-nav-menu-open] {
+    animation: nav-menu-open 0.3s ease;
+  }
+
+  [data-nav-menu-open].nav-menu-closing {
+    animation: nav-menu-close 0.3s ease forwards;
+  }
+
+  @keyframes nav-menu-open {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes nav-menu-close {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+  }
+</style>

@@ -1,71 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import timothyBraun from '../assets/img/timothy-braun.avif';
+import boKalabus from '../assets/img/bo-kalabus.avif';
+import tomRhodes from '../assets/img/tom-rhodes.avif';
+import { testimonials } from '../data/content';
+
+const images = [timothyBraun, boKalabus, tomRhodes];
+---
+
 <section id="testimonials" class="section is-secondary">
   <div class="container">
-    <div data-duration-out="100" data-current="Tab 3" data-easing="ease" data-duration-in="300" class="grid_3-col gap-medium w-tabs">
+    <div class="grid_3-col gap-medium w-tabs">
       <div id="w-node-dc19b400-f9c1-4517-60c4-f14d8cd0f410-8cd0f40d" class="flex_horizontal flex_vertical w-node-_7331c66d-2822-5380-ccae-53a6b00d0b93-8ce1c2ab w-tab-menu">
-        <a data-w-tab="Tab 1" class="tab_menu-button text-align_center w-tab-link"><div class="logo"><div class="text-block">Club Member</div></div></a><a
-          data-w-tab="Tab 2"
-          class="tab_menu-button text-align_center w-tab-link"><div class="logo"><div class="text-block-2">Vice President</div></div></a
-        ><a data-w-tab="Tab 3" class="tab_menu-button text-align_center w-tab-link w--current"><div class="logo"><div class="text-block-3">President</div></div></a>
+        {testimonials.map((t, i) => (
+          <a data-w-tab={`Tab ${i + 1}`} class:list={['tab_menu-button text-align_center w-tab-link', { 'w--current': i === testimonials.length - 1 }]}>
+            <div class="logo"><div>{t.role}</div></div>
+          </a>
+        ))}
       </div>
       <div id="w-node-dc19b400-f9c1-4517-60c4-f14d8cd0f41a-8cd0f40d" class="tabs_content w-node-_7331c66d-2822-5380-ccae-53a6b00d0baf-8ce1c2ab w-tab-content">
-        <div data-w-tab="Tab 1" class="w-tab-pane">
-          <div class="avatar margin-bottom_medium">
-            <img
-              width="64"
-              height="64"
-              alt="[headshot] image of a customer (for a japanese restaurant)"
-              src="../cdn.prod.website-files.com/689b97dc9ac4051f8ce1c2a4/689b9909b6f8e01946193e6d_077fc29e-2dd6-41c0-bf0b-e8a22ac710ea.avif"
-              loading="lazy"
-              data-aisg-image-id="61d5d6d2-f125-4174-804d-3116f6791ecd"
-              class="image_cover"
-            />
+        {testimonials.map((t, i) => (
+          <div data-w-tab={`Tab ${i + 1}`} class:list={['w-tab-pane', { 'w--tab-active': i === testimonials.length - 1 }]}>
+            <div class="avatar margin-bottom_medium">
+              <Image
+                width={64}
+                height={64}
+                alt={`Headshot of ${t.name}`}
+                src={images[i]}
+                loading="lazy"
+                class="image_cover"
+              />
+            </div>
+            <p class="paragraph_xlarge margin-bottom_medium">{t.quote}</p>
+            <div>{t.name}</div>
+            <div>{t.role}</div>
           </div>
-          <p class="paragraph_xlarge margin-bottom_medium">
-            Being part of this club transformed my flying. The encouragement and friendships here make every practice a joy. I’ve grown as a pilot and found a true community that
-            shares my love for aerobatics.
-          </p>
-          <div>Timothy Braun</div>
-          <div>Club Member</div>
-        </div>
-        <div data-w-tab="Tab 2" class="w-tab-pane">
-          <div class="avatar margin-bottom_medium">
-            <img
-              width=""
-              height="48"
-              alt="[headshot] image of customer with their pet"
-              src="../cdn.prod.website-files.com/689b97dc9ac4051f8ce1c2a4/689b99090ce5869a12383b32_417096f8-8ef7-4e90-99bf-74a08b6cc12c.avif"
-              loading="lazy"
-              data-aisg-image-id="23e18c04-60ad-4266-83eb-fb6a9cac64da"
-              class="image_cover"
-            />
-          </div>
-          <p class="paragraph_xlarge margin-bottom_medium">
-            Aerobatics felt out of reach until I joined. The support from everyone helped me push boundaries and celebrate every win. This group truly lifts you higher, both in the
-            air and on the ground.
-          </p>
-          <div>Bo Kalabus</div>
-          <div>Vice President</div>
-        </div>
-        <div data-w-tab="Tab 3" class="w-tab-pane w--tab-active">
-          <div class="avatar margin-bottom_medium">
-            <img
-              width=""
-              height="48"
-              alt="[headshot] image of customer (mobile gaming)"
-              src="../cdn.prod.website-files.com/689b97dc9ac4051f8ce1c2a4/689b99090aba1f7df64a087f_278bba38-e363-4890-8d5c-835e3323e08b.avif"
-              loading="lazy"
-              data-aisg-image-id="26fb50c1-9632-4bf4-b841-f467935e0f9f"
-              class="image_cover"
-            />
-          </div>
-          <p class="paragraph_xlarge margin-bottom_medium">
-            From my first roll to my first contest, the mentorship and energy here have been amazing. If you want to learn, compete, and connect, you’ll find your place in this
-            club.
-          </p>
-          <div>Tom Rhodes</div>
-          <div>President</div>
-        </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const testimonialTabs = document.querySelector('#testimonials .w-tab-menu');
+  const testimonialLinks = testimonialTabs?.querySelectorAll('.w-tab-link');
+  const testimonialPanes = document.querySelectorAll('#testimonials .w-tab-pane');
+
+  testimonialLinks?.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const tabId = link.getAttribute('data-w-tab');
+
+      testimonialLinks.forEach(l => l.classList.remove('w--current'));
+      link.classList.add('w--current');
+
+      testimonialPanes.forEach(pane => {
+        if (pane.getAttribute('data-w-tab') === tabId) {
+          pane.classList.add('w--tab-active');
+        } else {
+          pane.classList.remove('w--tab-active');
+        }
+      });
+    });
+  });
+</script>

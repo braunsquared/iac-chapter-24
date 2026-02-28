@@ -1,9 +1,13 @@
+---
+import { contactContent } from '../data/content';
+---
+
 <section id="contact" class="section is-secondary">
   <div class="container text-align_center">
     <div class="header is-align-center">
-      <p class="eyebrow">Get in touch</p>
-      <h2 class="heading_h2">Join our aerobatic community</h2>
-      <p class="subheading">Ready to connect? We’d love to hear from fellow pilots and enthusiasts.</p>
+      <p class="eyebrow">{contactContent.eyebrow}</p>
+      <h2 class="heading_h2">{contactContent.heading}</h2>
+      <p class="subheading">{contactContent.description}</p>
     </div>
     <ul role="list" class="grid_3-col gap-small w-list-unstyled">
       <li id="w-node-ebcd7cc9-c758-03b2-23ad-c3efda1f0944-8ce1c2ab" class="margin-bottom_none">
@@ -13,9 +17,9 @@
             <path d="M5.25 6.75L12 12L18.75 6.75" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
           </svg>
         </div>
-        <h3 class="heading_h5">Send an email</h3>
-        <p class="text-color_secondary">Reach out anytime with your questions.</p>
-        <div><a href="index.html#" class="text-link is-secondary">info@iac24.org</a></div>
+        <h3 class="heading_h5">{contactContent.emailLabel}</h3>
+        <p class="text-color_secondary">{contactContent.emailDescription}</p>
+        <div><a href={`mailto:${contactContent.email}`} class="text-link is-secondary">{contactContent.email}</a></div>
       </li>
     </ul>
   </div>

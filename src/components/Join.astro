@@ -1,16 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import formation from '../assets/img/smoke-formation.jpg';
+import { joinSection } from '../data/content';
 ---
 
 <section id="join" class="section padding-bottom_none">
   <div class="container">
     <div id="w-node-_015b3ef9-6065-9a1c-a8e1-7310c5fa80f9-c5fa80f6" class="header is-align-center w-node-_9c97ebd5-4ea4-af92-2f8a-7a535a958a75-8ce1c2ab">
-      <h2 class="heading_h1">Fly higher. Join our crew.</h2>
-      <p class="subheading max-width_large margin-horizontal_auto">
-        Ready to master aerobatics? Connect with passionate pilots, sharpen your skills, and experience the excitement of flight in a supportive community.
-      </p>
-      <div class="button-group is-align-center"><a href="index.html#" class="button w-button">Join now</a></div>
+      <h2 class="heading_h1">{joinSection.heading}</h2>
+      <p class="subheading max-width_large margin-horizontal_auto">{joinSection.description}</p>
+      <div class="button-group is-align-center"><a href={joinSection.cta.href} class="button w-button">{joinSection.cta.label}</a></div>
     </div>
     <Image
       class="image radius_bottom-0"
@@ -18,7 +17,6 @@ import formation from '../assets/img/smoke-formation.jpg';
       src={formation}
       width="1248"
       alt="image of smoke formation"
-      data-aisg-image-id="7405d164-cb7b-4ee1-b43b-96ee2e361614"
       loading="lazy"
       quality={80}
       densities={[1.5, 2]}

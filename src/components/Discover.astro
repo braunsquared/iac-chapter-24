@@ -4,21 +4,21 @@ import everyone from '../assets/img/Everyone-scaled.jpg';
 import img2790 from '../assets/img/IMG_2790-scaled.jpeg';
 import img2015 from '../assets/img/20150613_0826171_zpsp2fukfcq.jpg';
 import briefing from '../assets/img/Briefing-scaled.jpg';
+import { discoverIntro, tabs } from '../data/content';
+
+const tabImages = [everyone, img2790, img2015, briefing];
 ---
 
 <section id="discover" class="section is-secondary">
   <div id="w-node-_0c14111e-83c1-e0a2-d0e7-73feb7199d5b-2d40cb18" class="container is-small w-node-a4b5b2e2-f43a-e57c-a491-06c290db1eb5-8ce1c2ab">
     <div class="header is-align-center">
-      <div class="eyebrow margin-bottom_xsmall text-color_secondary">Discover what sets us apart</div>
-      <h2 class="heading_h2">Fly. Learn. Belong. Achieve.</h2>
-      <p class="subheading">
-        Step into a vibrant community where pilots of all backgrounds come together to master aerobatics. Whether you’re just starting out or aiming for the podium, you’ll find
-        expert guidance, camaraderie, and inspiration to help you reach new heights.
-      </p>
+      <div class="eyebrow margin-bottom_xsmall text-color_secondary">{discoverIntro.eyebrow}</div>
+      <h2 class="heading_h2">{discoverIntro.heading}</h2>
+      <p class="subheading">{discoverIntro.description}</p>
     </div>
   </div>
   <div class="container margin-top_medium">
-    <div data-duration-in="300" data-easing="ease" data-current="Tab 4" data-duration-out="100" class="grid_1-col w-tabs">
+    <div class="grid_1-col w-tabs">
       <div id="w-node-_4f16d1c1-f5bd-cf42-6e56-2a3d3a3b49f4-2d40cb18" class="grid_4-col gap-xsmall w-node-a4b5b2e2-f43a-e57c-a491-06c290db1eca-8ce1c2ab w-tab-menu">
         <a data-w-tab="Tab 1" class="tab_menu-link_transparent-bottom w-tab-link w--current"
           ><div class="heading_h5">Competitions</div>
@@ -46,7 +46,6 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
               src={everyone}
               loading="lazy"
               id="w-node-_4f16d1c1-f5bd-cf42-6e56-2a3d3a3b4a0c-2d40cb18"
-              data-aisg-image-id="211ffcea-b3be-477f-8a41-89ff942db53c"
               class="image image_cover ratio_3x2 w-node-a4b5b2e2-f43a-e57c-a491-06c290db1ecb-8ce1c2ab"
               quality={80}
               densities={[1.5, 2]}
@@ -57,7 +56,7 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
                 <p class="paragraph_small">
                   Mark your calendar for our next aerobatic event! Enjoy supportive competition, expert feedback, and a chance to celebrate your progress with friends.
                 </p>
-                <div class="margin_top-auto padding-top_xsmall"><a href="index.html#join" class="button is-secondary w-button">Register</a></div>
+                <div class="margin_top-auto padding-top_xsmall"><a href="/#join" class="button is-secondary w-button">Register</a></div>
               </div>
             </div>
           </div>
@@ -70,7 +69,6 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
               src={img2790}
               alt="a group of people standing in front of an airplane"
               sizes="100vw"
-              data-aisg-image-id="2ca88777-858b-45a9-87d7-9d38b207e7a6"
               id="w-node-c8def9c0-aa38-1e19-8fe2-c7e5946fbd24-2d40cb18"
               loading="lazy"
               quality={80}
@@ -83,7 +81,7 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
                   Join us at KGYI the second Saturday of every month (mostly, weather permitting), where we practice in an active aerobatic box. Get tips and feedback from other
                   club members.
                 </p>
-                <div class="margin_top-auto padding-top_xsmall"><a href="index.html#join" class="button is-secondary w-button">Join now</a></div>
+                <div class="margin_top-auto padding-top_xsmall"><a href="/#join" class="button is-secondary w-button">Join now</a></div>
               </div>
             </div>
           </div>
@@ -95,7 +93,6 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
               class="image image_cover ratio_3x2 w-node-a4b5b2e2-f43a-e57c-a491-06c290db1ee3-8ce1c2ab"
               src={img2015}
               alt="a couple of airplanes leaving a hangar"
-              data-aisg-image-id="38738fc7-8c60-4fec-8344-6f81f7177f68"
               id="w-node-_401237bc-e1c4-26d5-f026-513fe7a091b3-2d40cb18"
               loading="lazy"
               quality={80}
@@ -108,7 +105,7 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
                   Join us for our club meetings where we get to socialize with other club members, family members and learn from guest speakers with a focus on safety, technique,
                   and advanced routines—perfect for pilots at any stage.
                 </p>
-                <div class="margin_top-auto padding-top_xsmall"><a href="index.html#join" class="button is-secondary w-button">Sign up</a></div>
+                <div class="margin_top-auto padding-top_xsmall"><a href="/#join" class="button is-secondary w-button">Sign up</a></div>
               </div>
             </div>
           </div>
@@ -122,12 +119,14 @@ import briefing from '../assets/img/Briefing-scaled.jpg';
               alt="a group of people sitting, listening to a briefing"
               id="w-node-_5275167e-ee25-e474-bcaf-1506447e98a3-2d40cb18"
               loading="lazy"
+              quality={80}
+              densities={[1.5, 2]}
             />
             <div id="w-node-_5275167e-ee25-e474-bcaf-1506447e98a4-2d40cb18" class="card on-secondary w-node-a4b5b2e2-f43a-e57c-a491-06c290db1ef8-8ce1c2ab">
               <div class="card_body flex_vertical">
                 <div class="heading_h4">Connect and grow</div>
                 <p class="paragraph_small">Share your journey, ask questions, and build lasting friendships with others who share your passion for aerobatics.</p>
-                <div class="margin_top-auto padding-top_xsmall"><a href="index.html#join" class="button is-secondary w-button">Join us</a></div>
+                <div class="margin_top-auto padding-top_xsmall"><a href="/#join" class="button is-secondary w-button">Join us</a></div>
               </div>
             </div>
           </div>

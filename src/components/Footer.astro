@@ -1,3 +1,7 @@
+---
+import { navLinks } from '../data/content';
+---
+
 <footer class="footer is-inverse">
   <div class="container">
     <div class="footer_bottom-3-col">
@@ -9,17 +13,13 @@
         role="list"
         class="button-group margin_none text-align_center w-node-a5508e62-ff50-d2a5-9302-fdc7de6fa1b7-de6fa1ad w-list-unstyled"
       >
+        {navLinks.map(link => (
+          <li class="margin-bottom_none">
+            <a href={`/${link.href}`} class="footer_link on-inverse w-inline-block"><div>{link.label}</div></a>
+          </li>
+        ))}
         <li class="margin-bottom_none">
-          <a href="/#discover" class="footer_link on-inverse w-inline-block"><div>Discover</div></a>
-        </li>
-        <li class="margin-bottom_none">
-          <a href="/#faq" class="footer_link on-inverse w-inline-block"><div>FAQ</div></a>
-        </li>
-        <li class="margin-bottom_none">
-          <a href="/#contact" class="footer_link on-inverse w-inline-block"><div>Contact</div></a>
-        </li>
-        <li class="margin-bottom_none">
-          <a href="/#contact" class="footer_link on-inverse w-inline-block"><div>Join</div></a>
+          <a href="/#join" class="footer_link on-inverse w-inline-block"><div>Join</div></a>
         </li>
       </ul>
       <!-- 

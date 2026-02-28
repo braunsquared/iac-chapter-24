@@ -4,6 +4,7 @@ import image2 from '../assets/img/IMG_5502-scaled.jpg';
 import image3 from '../assets/img/IMG_4712-scaled.jpeg';
 import image4 from '../assets/img/ramp-curt.png';
 import { Image } from 'astro:assets';
+import { heroContent } from '../data/content';
 ---
 
 <header class="section">
@@ -18,7 +19,7 @@ import { Image } from 'astro:assets';
             height="257"
             alt="a couple of planes in a hangar"
             sizes="(max-width: 479px) 100vw, 280px"
-            loading="lazy"
+            loading="eager"
             quality={80}
             densities={[1.5, 2]}
           />
@@ -31,7 +32,7 @@ import { Image } from 'astro:assets';
             height="348"
             alt="two people standing in front of a plane"
             sizes="(max-width: 479px) 100vw, 280px"
-            loading="lazy"
+            loading="eager"
             quality={80}
             densities={[1.5, 2]}
           />
@@ -44,7 +45,7 @@ import { Image } from 'astro:assets';
             height="348"
             alt="aerobatics champoionship belt buckle"
             sizes="(max-width: 479px) 100vw, 280px"
-            loading="lazy"
+            loading="eager"
             quality={80}
             densities={[1.5, 2]}
           />
@@ -57,22 +58,19 @@ import { Image } from 'astro:assets';
             height="257"
             alt="a plane sitting on the tarmac"
             sizes="100vw"
-            data-aisg-image-id="38738fc7-8c60-4fec-8344-6f81f7177f68"
             id="w-node-_24b5b0d4-de96-2004-b80c-aa8c48951e1a-1fd804e6"
-            loading="lazy"
+            loading="eager"
             quality={80}
             densities={[1.5, 2]}
           />
         </div>
       </div>
       <div id="w-node-_24b5b0d4-de96-2004-b80c-aa8c48951e07-1fd804e6" class="header w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac0a28-8ce1c2ab">
-        <h1 class="heading_h1">Fly. Compete. Belong.</h1>
-        <p class="subheading">
-          Step into the cockpit with us—where every pilot is welcome, every skill level is celebrated, and every flight is a chance to grow. Discover new maneuvers, connect with
-          fellow enthusiasts, and take your passion for aerobatics to the next level.
-        </p>
+        <h1 class="heading_h1">{heroContent.headline}</h1>
+        <p class="subheading">{heroContent.subtext}</p>
         <div class="button-group">
-          <a href="/#join" class="button w-button">Get started</a><a href="/#discover" class="button is-secondary w-button">Discover more</a>
+          <a href={heroContent.ctaPrimary.href} class="button w-button">{heroContent.ctaPrimary.label}</a>
+          <a href={heroContent.ctaSecondary.href} class="button is-secondary w-button">{heroContent.ctaSecondary.label}</a>
         </div>
       </div>
     </div>
