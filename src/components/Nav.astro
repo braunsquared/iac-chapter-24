@@ -1,0 +1,54 @@
+---
+import logo from '../assets/img/logo.png';
+import { Image } from 'astro:assets';
+---
+
+<div class="nav">
+  <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium" role="banner" data-no-scroll="1" class="nav_container w-nav">
+    <div class="nav_left">
+      <a href="/" class="nav_logo w-inline-block"
+        ><Image src={logo} loading="eager" alt="" width="40" class="logo" quality={90} densities={[1.5, 2]} />
+        <div class="paragraph_large margin-bottom_none">Chapter 24</div></a
+      >
+    </div>
+    <div class="nav_right">
+      <nav role="navigation" class="nav_menu w-nav-menu">
+        <ul role="list" class="nav_menu-list w-list-unstyled">
+          <li class="nav_menu-list-item">
+            <a href="/#discover" class="nav_link w-inline-block"><div>Discover</div></a>
+          </li>
+          <li class="nav_menu-list-item">
+            <a href="/#faq" class="nav_link w-inline-block"><div>FAQ</div></a>
+          </li>
+          <li class="nav_menu-list-item">
+            <a href="/#contact" class="nav_link w-inline-block"><div>Contact</div></a>
+          </li>
+        </ul>
+      </nav>
+      <div class="button-group margin-top_none">
+        <a href="/join" class="button w-inline-block"><div class="button_label">Join Now!</div></a>
+      </div>
+    </div>
+    <div class="nav_mobile-menu-button w-nav-button">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
+            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
+            <line x1="1" y1="5" x2="23" y2="5"></line>
+            <line x1="1" y1="19" x2="23" y2="19"></line>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const toggle = document.querySelector('.nav_mobile-btn');
+  const menu = document.querySelector('.nav_right');
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('open');
+  });
+</script>

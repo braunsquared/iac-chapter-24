@@ -1,0 +1,80 @@
+---
+import image1 from '../assets/img/20150613_0759531_zpsxyfhm9ga.jpg';
+import image2 from '../assets/img/IMG_5502-scaled.jpg';
+import image3 from '../assets/img/IMG_4712-scaled.jpeg';
+import image4 from '../assets/img/ramp-curt.png';
+import { Image } from 'astro:assets';
+---
+
+<header class="section">
+  <div class="container">
+    <div class="w-layout-grid grid_2-col tablet-1-col gap-xxlarge">
+      <div id="w-node-_24b5b0d4-de96-2004-b80c-aa8c48951e16-1fd804e6" class="w-layout-grid grid_2-col gap-xsmall w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac09e7-8ce1c2ab">
+        <div id="w-node-_8e9573f0-3be5-d782-5d6f-cdb04cf18cff-8ce1c2ab">
+          <Image
+            src={image1}
+            width="280"
+            class="image_cover w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac09e3-8ce1c2ab"
+            height="257"
+            alt="a couple of planes in a hangar"
+            sizes="(max-width: 479px) 100vw, 280px"
+            loading="lazy"
+            quality={80}
+            densities={[1.5, 2]}
+          />
+        </div>
+        <div id="w-node-e5519518-4162-516c-44d2-142732b87715-8ce1c2ab">
+          <Image
+            src={image2}
+            class="image_cover w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac09e4-8ce1c2ab"
+            width="280"
+            height="348"
+            alt="two people standing in front of a plane"
+            sizes="(max-width: 479px) 100vw, 280px"
+            loading="lazy"
+            quality={80}
+            densities={[1.5, 2]}
+          />
+        </div>
+        <div id="w-node-da2e46ee-2ce1-3ef3-1d9f-159e055c2cd1-8ce1c2ab">
+          <Image
+            src={image3}
+            class="image_cover w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac09e5-8ce1c2ab"
+            width="280"
+            height="348"
+            alt="aerobatics champoionship belt buckle"
+            sizes="(max-width: 479px) 100vw, 280px"
+            loading="lazy"
+            quality={80}
+            densities={[1.5, 2]}
+          />
+        </div>
+        <div id="w-node-_4820f6a9-8ad5-7ff6-de25-85b148b0dadd-8ce1c2ab">
+          <Image
+            src={image4}
+            class="image_cover w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac09e6-8ce1c2ab"
+            width="1280"
+            height="257"
+            alt="a plane sitting on the tarmac"
+            sizes="100vw"
+            data-aisg-image-id="38738fc7-8c60-4fec-8344-6f81f7177f68"
+            id="w-node-_24b5b0d4-de96-2004-b80c-aa8c48951e1a-1fd804e6"
+            loading="lazy"
+            quality={80}
+            densities={[1.5, 2]}
+          />
+        </div>
+      </div>
+      <div id="w-node-_24b5b0d4-de96-2004-b80c-aa8c48951e07-1fd804e6" class="header w-node-_57f7fdca-d0eb-42fa-3711-eb9ceaac0a28-8ce1c2ab">
+        <h1 class="heading_h1">Fly. Compete. Belong.</h1>
+        <p class="subheading">
+          Step into the cockpit with us—where every pilot is welcome, every skill level is celebrated, and every flight is a chance to grow. Discover new maneuvers, connect with
+          fellow enthusiasts, and take your passion for aerobatics to the next level.
+        </p>
+        <div class="button-group">
+          <a href="/#join" class="button w-button">Get started</a><a href="/#discover" class="button is-secondary w-button">Discover more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
