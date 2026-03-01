@@ -8,6 +8,8 @@ export const navLinks = [
   { label: 'Discover', href: '#discover' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Competition', href: 'competition' },
+  { label: 'About', href: 'about' },
 ];
 
 export const heroContent = {
@@ -126,6 +128,84 @@ export const contactContent = {
   emailLabel: 'Send an email',
   emailDescription: 'Reach out anytime with your questions.',
   email: siteConfig.email,
+};
+
+export const aboutIntro = {
+  eyebrow: 'About us',
+  heading: 'The Lone Star Aerobatic Club',
+  description:
+    "IAC Chapter 24 is a community of aerobatic pilots based in North Texas. Founded as a chapter of the International Aerobatic Club, we bring together pilots of all skill levels who share a passion for aerobatic flight. Whether you're a seasoned competitor or just discovering the joy of flying upside down, our chapter offers a welcoming place to learn, practice, and grow.",
+};
+
+export const meetingDetails = {
+  eyebrow: 'When & where',
+  heading: 'Come fly with us',
+  items: [
+    {
+      title: 'Fly Days',
+      description:
+        'Join us on the 2nd Saturday of every month at the KGYI aerobatic box (weather permitting). Practice maneuvers, get feedback, and enjoy the camaraderie of fellow aerobatic pilots.',
+    },
+    {
+      title: 'Club Meetings',
+      description:
+        'We hold regular club meetings and events featuring guest speakers, safety discussions, and social time. Check in with us for the latest schedule and locations.',
+    },
+    {
+      title: 'Location',
+      description: 'Our fly days are based at North Texas Regional Airport (KGYI) in Sherman/Denison, Texas, where we have access to a designated aerobatic practice box.',
+    },
+  ],
+};
+
+export const boardMembers = [
+  { name: 'Tom Rhodes', role: 'President' },
+  { name: 'Bo Kalabus', role: 'Vice President' },
+  { name: 'Michelle Braun', role: 'Secretary' },
+  { name: 'Jaret Burgess', role: 'Board Member' },
+  { name: 'Timothy Braun', role: 'Board Member' },
+  { name: 'Jeff Cain', role: 'Board Member' },
+  { name: 'Pat Clark', role: 'Board Member' },
+  { name: 'Bill Denton', role: 'Board Member' },
+  { name: 'Mike Gallaway', role: 'Board Member' },
+  { name: 'Curt Richmond', role: 'Board Member' },
+];
+
+export const competitionContent = {
+  eyebrow: 'Upcoming Competition',
+  heading: '2026 Lone Star Aerobatic Championships',
+  description:
+    "Join us for the Lone Star Aerobatic Championships, hosted by IAC Chapter 24. Pilots from across the region will gather to compete, connect, and celebrate the art of aerobatic flight. Whether you're competing or spectating, come be part of the excitement.",
+  details: [
+    {
+      title: 'Dates',
+      description: 'May 14–16, 2026',
+    },
+    {
+      title: 'Location',
+      description: 'Graham Municipal Airport (KRPH), Graham, TX — 100 miles west of Dallas. Aerobatic box on the east side, paralleling runway 03-21.',
+    },
+  ],
+  schedule: [
+    { day: 'Thursday, May 14', description: 'Registration & Practice Flights (10:00 AM – 7:00 PM)' },
+    { day: 'Friday–Saturday, May 15–16', description: 'Competition flights' },
+    { day: 'Saturday Evening', description: 'Awards Banquet' },
+  ],
+  categories: ['Power Primary', 'Power Sportsman', 'Power Intermediate', 'Power Advanced', 'Four Minute Free'],
+  fees: {
+    entry: '$175',
+    banquet: '$25',
+    firstTimeNote: 'First-time competitors enter free — no entry fee!',
+  },
+  contacts: [
+    { role: 'Contest Director', name: 'Bo Kalabus', phone: '214-402-4364', email: 'bokalabus@me.com' },
+    { role: 'General Inquiries', name: 'Jeff Cain', email: 'cainjftw@yahoo.com' },
+  ],
+  lodging: [
+    { name: 'Holiday Inn Express', phone: '940-521-9188' },
+    { name: 'Best Western', phone: '940-521-0190' },
+  ],
+  cta: { label: 'Register', href: '#' },
 };
 
 export const socialLinks = [

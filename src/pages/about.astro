@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+import { aboutIntro, meetingDetails, boardMembers } from '../data/content';
+---
+
+<Layout title="About - IAC Chapter 24" description="Learn about IAC Chapter 24, the Lone Star Aerobatic Club. Meet our board members, find out when and where we fly, and discover what makes our community special.">
+  <Nav />
+  <header class="section flex_vertical">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">{aboutIntro.eyebrow}</div>
+        <h1 class="heading_h1">{aboutIntro.heading}</h1>
+        <p class="subheading">{aboutIntro.description}</p>
+      </div>
+    </div>
+  </header>
+  <section class="section is-secondary">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">{meetingDetails.eyebrow}</div>
+        <h2 class="heading_h2">{meetingDetails.heading}</h2>
+      </div>
+      <div class="w-layout-grid grid_3-col gap-medium">
+        {meetingDetails.items.map(item => (
+          <div class="card on-secondary">
+            <div class="card_body_small">
+              <h3 class="heading_h4">{item.title}</h3>
+              <p class="text-color_secondary">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">Leadership</div>
+        <h2 class="heading_h2">Meet the board</h2>
+        <p class="subheading">Our chapter is led by a dedicated group of volunteers who keep the club running and the community thriving.</p>
+      </div>
+      <div class="w-layout-grid grid_3-col tablet-1-col gap-medium">
+        {boardMembers.map(member => (
+          <div class="card">
+            <div class="card_body_small text-align_center">
+              <h3 class="heading_h4 margin-bottom_none">{member.name}</h3>
+              <p class="text-color_secondary">{member.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <Contact />
+  <Footer />
+</Layout>

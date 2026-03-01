@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Contact from '../components/Contact.astro';
+import { competitionContent } from '../data/content';
+import heroImage from '../assets/img/Everyone-scaled.jpg';
+---
+
+<Layout
+  title="Competition - IAC Chapter 24"
+  description="Lone Star Aerobatic Championships, May 14–17, 2026 at Graham Municipal Airport (KRPH), Graham, TX. Hosted by IAC Chapter 24."
+>
+  <Nav />
+  <header class="section flex_vertical">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">{competitionContent.eyebrow}</div>
+        <h1 class="heading_h1">{competitionContent.heading}</h1>
+        <p class="subheading">{competitionContent.description}</p>
+      </div>
+      <Image
+        class="image"
+        style="height: auto; margin-top: 3rem;"
+        src={heroImage}
+        width="1248"
+        alt="Aerobatic pilots gathered at a competition event"
+        loading="eager"
+        quality={80}
+        densities={[1.5, 2]}
+      />
+    </div>
+  </header>
+  <section class="section is-secondary">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">Event Details</div>
+        <h2 class="heading_h2">When & Where</h2>
+      </div>
+      <div class="w-layout-grid grid_2-col gap-medium">
+        {
+          competitionContent.details.map(item => (
+            <div class="card on-secondary">
+              <div class="card_body_small text-align_center">
+                <h3 class="heading_h4">{item.title}</h3>
+                <p class="text-color_secondary">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">Schedule</div>
+        <h2 class="heading_h2">Event Timeline</h2>
+      </div>
+      <div class="w-layout-grid grid_3-col tablet-1-col gap-medium">
+        {
+          competitionContent.schedule.map(item => (
+            <div class="card">
+              <div class="card_body_small text-align_center">
+                <h3 class="heading_h4">{item.day}</h3>
+                <p class="text-color_secondary">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-secondary">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">Competition</div>
+        <h2 class="heading_h2">Categories</h2>
+      </div>
+      <div class="w-layout-grid grid_5-col tablet-1-col gap-medium">
+        {
+          competitionContent.categories.map(category => (
+            <div class="card on-secondary">
+              <div class="card_body_small text-align_center">
+                <p class="heading_h5" style="margin: 0;">{category}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="header is-align-center">
+        <div class="eyebrow">Registration</div>
+        <h2 class="heading_h2">Fees & Registration</h2>
+      </div>
+      <div class="w-layout-grid grid_2-col gap-medium">
+        <div class="card">
+          <div class="card_body_small text-align_center">
+            <h3 class="heading_h4">Entry Fee</h3>
+            <p class="heading_h2 margin-bottom_none">{competitionContent.fees.entry}</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card_body_small text-align_center">
+            <h3 class="heading_h4">Saturday Banquet</h3>
+            <p class="heading_h2 margin-bottom_none">{competitionContent.fees.banquet}</p>
+          </div>
+        </div>
+      </div>
+      <div class="header is-align-center margin-top_large">
+        <p class="paragraph_large">{competitionContent.fees.firstTimeNote}</p>
+        <a href={competitionContent.cta.href} class="button" target="_blank" rel="noopener noreferrer">{competitionContent.cta.label}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section is-secondary">
+    <div class="container">
+      <div class="w-layout-grid grid_2-col gap-medium">
+        <div>
+          <div class="header">
+            <div class="eyebrow">Questions?</div>
+            <h2 class="heading_h2">Contacts</h2>
+          </div>
+          {
+            competitionContent.contacts.map(contact => (
+              <div class="card on-secondary margin-bottom_small">
+                <div class="card_body_small">
+                  <h3 class="heading_h4 margin-bottom_none">{contact.name}</h3>
+                  <p class="text-color_secondary">{contact.role}</p>
+                  {contact.phone && <p class="text-color_secondary">{contact.phone}</p>}
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div>
+          <div class="header">
+            <div class="eyebrow">Accommodations</div>
+            <h2 class="heading_h2">Lodging</h2>
+          </div>
+          {
+            competitionContent.lodging.map(hotel => (
+              <div class="card on-secondary margin-bottom_small">
+                <div class="card_body_small">
+                  <h3 class="heading_h4 margin-bottom_none">{hotel.name}</h3>
+                  <p class="text-color_secondary">{hotel.phone}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
