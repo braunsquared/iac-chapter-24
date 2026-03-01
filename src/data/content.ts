@@ -192,6 +192,7 @@ export const competitionContent = {
     { day: 'Saturday Evening', description: 'Awards Banquet' },
   ],
   categories: ['Power Primary', 'Power Sportsman', 'Power Intermediate', 'Power Advanced', 'Four Minute Free'],
+  freeNote: 'If you plan on flying a FREE, please bring 5 A\'s, 10 B\'s, and 10 C\'s. It\'s a big help!',
   fees: {
     entry: '$175',
     banquet: '$25',
@@ -205,7 +206,7 @@ export const competitionContent = {
     { name: 'Holiday Inn Express', phone: '940-521-9188' },
     { name: 'Best Western', phone: '940-521-0190' },
   ],
-  cta: { label: 'Register', href: '#' },
+  cta: { label: 'Register', href: 'https://www.iac.org/contest/2026-05-15-lone-star-aerobatic-championships' },
 };
 
 export const socialLinks = [
