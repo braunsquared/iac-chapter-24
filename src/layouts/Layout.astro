@@ -22,6 +22,17 @@ const { title = `${siteConfig.title} - International Aerobatic Club`, descriptio
     <link rel="icon" type="image/png" href={favicon.src} />
     <meta name="description" content={description} />
     <title>{title}</title>
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-LWDJN435J7"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-LWDJN435J7');
+    </script>
   </head>
   <body>
     <slot />
